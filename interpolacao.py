@@ -9,7 +9,7 @@ class initInterpolacao():
     def __init__(self,k):
         #print(k)
         self.window2=tk.Toplevel(k)
-        self.visor=tk.Label(self.window2,text="",bg="light cyan",
+        self.visor=tk.Label(self.window2,text="Digite quantos pontos ira inserir: ",bg="light cyan",
                             fg="black", font=("Arial",15))
         self.input=tk.Entry(self.window2,text="",bg="light cyan",
                             fg="black", font=("Arial",15),width=5)
@@ -59,6 +59,7 @@ class initInterpolacao():
                 self.botoes[i][j].configure(command=functionButtonsT01[str(i)+str(j)])
 
 
-    def calculator(self,num):
+    def calculator(self,metodo):
+        pontos = int(self.input.get())
         t=cI.initCalcInterpolacao(self.window2)
-        t.start(4)
+        t.start(pontos,metodo)
