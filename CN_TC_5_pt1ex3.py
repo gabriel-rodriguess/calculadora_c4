@@ -12,8 +12,12 @@ def plotByPointInterP(given,xAnalise): #plota via trechos para gerar curva suavi
     y=[]
     ypoint=0.
     xpoint=0.
-    xminimo=float(input("Insira o ponto x minimo a ser vizualizado no grafico: "))
-    xmaximo=float(input("Insira o ponto x maximo a ser vizualizado no grafico: "))
+    xminimo=givenX[0]-1
+    xmaximo=givenX[len(givenX)-1]+1
+    if(xminimo>xAnalise):
+        xminimo=xAnalise
+    elif(xmaximo<xAnalise):
+        xminimo=xAnalise
     xminimo*=10
     xmaximo=(xmaximo)*10+1
     plt.axhline(y=.0,xmin=-100000,xmax=100000,linewidth=.5,color='k') #eixo x
@@ -52,7 +56,11 @@ def plotByPointInterP(given,xAnalise): #plota via trechos para gerar curva suavi
     plt.xlabel('x', fontsize=14)
     plt.ylabel('y', fontsize=14)
     plt.plot(x,y)
-    plt.show()
+    r=[]
+    r.append(ypoint)
+    r.append(plt)
+    return r
+
 
 def calculateLx(A,k,qtd,x):
     l=1.
@@ -70,4 +78,6 @@ def poliLagrange(A,qtd,x):
     return p
 
 def start(a,x):
-    plotByPointInterP(a,x)
+    r=[]
+    r=plotByPointInterP(a,x)
+    return r

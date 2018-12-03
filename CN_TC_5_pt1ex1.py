@@ -91,7 +91,7 @@ def interPoli(a,qtd):
     for i in range(qtd):
         B[i] = a[i][1]
 
-    poliIndexes = numpy.zeros(temp)
+    poliIndexes = numpy.zeros(qtd)
     poliIndexes = numpy.linalg.solve(A,B)
 
     min=int(a[:,0].min())

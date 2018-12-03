@@ -3,6 +3,8 @@ import numpy
 import math
 import calculatorInterface as cInterface
 import interpolacao as cInterpolacao
+import edoMethods as edo
+import integralMethods as integral
 
 def toplevel1():
     #toplevels
@@ -13,6 +15,15 @@ def interpolacao():
     i=cInterpolacao.initInterpolacao(janela)
     i.start()
 
+def toplevel3():
+    #toplevels
+    t=integral.integralmethodchosen(janela)
+    t.start()
+
+def toplevel4():
+    #toplevels
+    t=edo.edomethodchosen(janela)
+    t.start()
 
 #inicia janela principal
 janela=tk.Tk()
@@ -31,19 +42,20 @@ for i in range (3):
 for i in range (2):
     tk.Grid.columnconfigure(janela, i, weight=1)
 #visor
-visorMain=tk.Label(janela,text="textmain",bg="light cyan",
-               fg="black", font=("Arial",15))
+visorMain=tk.Label(janela,text="Selecione uma opção",bg="light cyan",
+               fg="black", font=("Arial 15 bold"))
 visorMain.grid(row=0,columnspan=2,sticky=tk.N+tk.S+tk.E+tk.W)
 #dicionarios
 textButtonMain = {
     "00":"Calculadora básica\n(radianos)",
     "01":"Interpolação",
 
-    "10":"botao3","11":"botao4",
+    "10":"Integral",
+    "11":"EDO",
 }
 functionButtonMain = {
     "00":toplevel1,"01":interpolacao,
-    "10":"","11":""
+    "10":toplevel3,"11":toplevel4
 }
 #cria botoes
 for i in range (2):

@@ -9,17 +9,17 @@ class initInterpolacao():
     def __init__(self,k):
         #print(k)
         self.window2=tk.Toplevel(k)
-        self.visor=tk.Label(self.window2,text="Digite quantos pontos ira inserir: ",bg="light cyan",
+        self.visor=tk.Label(self.window2,text="Digite quantos pontos ira' inserir: ",bg="light cyan",
                             fg="black", font=("Arial",15))
-        self.input=tk.Entry(self.window2,text="",bg="light cyan",
+        self.input=tk.Entry(self.window2,text="",bg="white",
                             fg="black", font=("Arial",15),width=5)
         self.botoes=[]
 
     def start(self):
         textButtonsT01 = {
-            "00":"Interpolação 1",
-            "01":"Interpolação 2",
-            "02":"Interpolação 3",
+            "00":"Interpolação\npolinomial",
+            "01":"Interpolação\nde Lagrange",
+            "02":"Interpolação\nde Newton",
         }
 
         functionButtonsT01 = {
@@ -60,6 +60,7 @@ class initInterpolacao():
 
 
     def calculator(self,metodo):
+        print(self.input.get())
         pontos = int(self.input.get())
         t=cI.initCalcInterpolacao(self.window2)
         t.start(pontos,metodo)
